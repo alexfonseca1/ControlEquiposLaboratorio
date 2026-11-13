@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="620.0" prefWidth="950.0" spacing="14.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.uam.edu.controlequiposlaboratorio.controller.EquipoController">
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Control de equipos de laboratorio" />
+
+    <GridPane hgap="12.0" vgap="10.0">
+        <Label text="Código" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtCodigo" prefWidth="220.0" promptText="0001" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Nombre" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <TextField fx:id="txtNombre" prefWidth="270.0" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+        <Label text="Marca" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtMarca" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="Cantidad" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+        <TextField fx:id="txtCantidad" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+        <Label text="Tipo" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ComboBox fx:id="cmbTipoEquipo" prefWidth="220.0" promptText="Seleccioná un tipo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Estado" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <ComboBox fx:id="cmbEstado" prefWidth="270.0" promptText="Seleccioná un estado" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <HBox spacing="10.0">
+        <Button onAction="#guardarEquipo" text="Guardar" />
+        <Button fx:id="btnActualizar" disable="true" onAction="#actualizarEquipo" text="Actualizar" />
+        <Button fx:id="btnEliminar" disable="true" onAction="#eliminarEquipo" text="Eliminar" />
+        <Button onAction="#limpiarFormulario" text="Limpiar" />
+    </HBox>
+
+    <Separator />
+
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <TextField fx:id="txtBuscarNombre" onAction="#buscarEquipos" prefWidth="270.0" promptText="Buscar por nombre" />
+        <ComboBox fx:id="cmbFiltroTipo" prefWidth="220.0" promptText="Todos los tipos" />
+        <Button onAction="#buscarEquipos" text="Buscar" />
+        <Button onAction="#limpiarFiltros" text="Quitar filtros" />
+    </HBox>
+
+    <TableView fx:id="tablaEquipos" VBox.vgrow="ALWAYS">
+        <placeholder>
+            <Label text="No hay equipos para mostrar" />
+        </placeholder>
+
+        <columns>
+            <TableColumn fx:id="colCodigo" prefWidth="105.0" text="Código" />
+            <TableColumn fx:id="colNombre" prefWidth="235.0" text="Nombre" />
+            <TableColumn fx:id="colMarca" prefWidth="125.0" text="Marca" />
+            <TableColumn fx:id="colEstado" prefWidth="155.0" text="Estado" />
+            <TableColumn fx:id="colCantidad" prefWidth="85.0" text="Cantidad" />
+            <TableColumn fx:id="colTipo" prefWidth="165.0" text="Tipo" />
+        </columns>
+    </TableView>
+</VBox>
